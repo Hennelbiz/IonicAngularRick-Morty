@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="userslist"> </ion-back-button>
+    </ion-buttons>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeMd="4" offsetMd="4">
+        <div *ngIf="informationProfile">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title class="ion-text-center">{{informationProfile.name}}</ion-card-title>
+              <ion-card-subtitle class="ion-text-center">{{informationProfile.origin.name}}</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content class="ion-text-center">
+              <img src="{{informationProfile.image}}" alt/>
+              <p>{{informationProfile.status}}</p>
+              <p>{{informationProfile.species}}</p>
+              <p>{{informationProfile.gender}}</p>
+            </ion-card-content>
+          </ion-card>
+
+          <ion-card>
+            <ion-header>
+              <ion-card-title class="ion-text-center">{{informationProfile.location.name}}</ion-card-title>
+            </ion-header>
+          </ion-card>
+
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

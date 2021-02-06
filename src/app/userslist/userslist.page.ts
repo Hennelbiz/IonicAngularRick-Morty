@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-userslist',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserslistPage implements OnInit {
 
-  constructor() { }
+  characters = []
+
+  constructor(private httpClient : HttpClient) { }
 
   ngOnInit() {
+    this.httpClient.get<any>('https://rickandmortyapi.com/api/character')
+    .subscribe(res => 
+    {
+      console.log(res);
+      this.characters = res.results;
+    })
   }
 
 }
