@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="userslist"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Busqueda Personaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col>
+        <ion-card>
+
+          <ion-card-header>
+            <ion-card-title>Search</ion-card-title>
+          </ion-card-header>
+          <ion-input type="text" placeholder="Nombre"></ion-input>
+          <ion-input type="text" placeholder="Especie"></ion-input>
+  
+          <ion-list>
+  
+            <ion-item>
+              <ion-label>Estado:</ion-label>
+              <ion-select interface="action-sheet">
+                <ion-select-option value="alive">Alive</ion-select-option>
+                <ion-select-option value="dead">Dead</ion-select-option>
+                <ion-select-option value="unknown">Unknown</ion-select-option>
+              </ion-select>
+            </ion-item>
+  
+            <ion-item>
+              <ion-label>Genero:</ion-label>
+              <ion-select interface="action-sheet">
+                <ion-select-option value="female"> Female</ion-select-option>
+                <ion-select-option value="male"> Male</ion-select-option>
+                <ion-select-option value="genderless"> Genderless</ion-select-option>
+                <ion-select-option value="unknown"> Unknowm</ion-select-option>
+              </ion-select>
+            </ion-item>
+  
+          </ion-list>
+  
+          <ion-button expand="block">Search</ion-button>
+  
+        </ion-card>
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
+</ion-content>
