@@ -19,17 +19,20 @@
             </ion-card-header>
             <ion-card-content class="ion-text-center">
               <img src="{{informationProfile.image}}" alt/>
-              <p>{{informationProfile.status}}</p>
-              <p>{{informationProfile.species}}</p>
-              <p>{{informationProfile.gender}}</p>
+              <p>Estado: {{informationProfile.status}}</p>
+              <p>Especie: {{informationProfile.species}}</p>
+              <p>Genero: {{informationProfile.gender}}</p>
             </ion-card-content>
           </ion-card>
 
-          <ion-card>
+          <ion-card *ngIf="informationPlanet">
             <ion-header>
               <ion-card-title class="ion-text-center">{{informationProfile.location.name}}</ion-card-title>
-              <ion-card-subtitle> Aqui iria la informacion de la tierrra donde esta el personaje</ion-card-subtitle>
+              <ion-card-subtitle class="ion-text-center">{{informationPlanet.type}}</ion-card-subtitle>
             </ion-header>
+            <ion-card-content class="ion-text-center">
+              <p>Dimension: {{informationPlanet.dimension}}</p>
+            </ion-card-content>
           </ion-card>
 
         </div>

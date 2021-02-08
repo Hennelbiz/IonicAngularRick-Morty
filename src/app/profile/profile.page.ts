@@ -13,6 +13,7 @@ export class ProfilePage implements OnInit {
   profileid: string;
   informationProfile;
   informationLocation: string;
+  informationPlanet;
 
   constructor(private activatedRoute: ActivatedRoute,
               private httpClient: HttpClient) { }
@@ -27,13 +28,13 @@ export class ProfilePage implements OnInit {
       console.log(this.informationProfile)
     })*/
 
-    this.httpClient.get<any>('https://rickandmortyapi.com/api/character/' + this.profileid)
-    .subscribe(res => 
-    {
+    //this.httpClient.get<any>('https://rickandmortyapi.com/api/character/' + this.profileid)
+    //.subscribe(res => 
+    //{
       //console.log(res);
-      this.informationProfile = res;
+      //this.informationProfile = res;
       //console.log(this.informationProfile)
-      this.informationLocation = res.location.url.substring(41)
+      //this.informationLocation = res.location.url.substring(41)
       //console.log(this.informationLocation)
       /*this.informationLocation = res.location.url
       this.informationLocation1 = res.location.url
@@ -42,13 +43,27 @@ export class ProfilePage implements OnInit {
       console.log('Prueba- ' + this.informationLocation)      
       console.log('Prueba- ' + this.informationLocation1.substring(41))
       console.log('Prueba- ' + this.informationLocation2)*/
-    })
+    //})
 
     /*this.httpClient.get<any>('https://rickandmortyapi.com/api/location/' + this.informationLocation)
     .subscribe(res => 
     {
       console.log(res);
     })*/
-  }
 
+    this.httpClient.get<any>('https://rickandmortyapi.com/api/character/' + this.profileid)
+    .subscribe(res =>
+    {
+      this.informationProfile = res;
+      this.informationLocation = res.location.url.substring(41);
+
+      this.httpClient.get<any>('https://rickandmortyapi.com/api/location/' + this.informationLocation)
+      .subscribe(res1 =>
+      {
+        this.informationPlanet = res1;
+        console.log(this.informationPlanet);
+      });
+    });
+
+  }
 }
