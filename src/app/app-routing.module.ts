@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'search-character',
     loadChildren: () => import('./search-character/search-character.module').then( m => m.SearchCharacterPageModule)
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
 ];
 
 @NgModule({
