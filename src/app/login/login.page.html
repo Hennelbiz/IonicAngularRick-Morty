@@ -5,33 +5,21 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>
+  <form>
+    <ion-item lines="full">
+      <ion-label position="floating">Usuario</ion-label>
+      <ion-input [(ngModel)]="usuario" name="usuario" type="text" required clear-input="true"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input [(ngModel)]="password" name="password" type="password" required ></ion-input>
+    </ion-item>
 
     <ion-row>
       <ion-col>
-        <ion-item>
-          <ion-label position="floating"> Usuario</ion-label>
-          <ion-input #usuario></ion-input>
-        </ion-item>
+        <ion-button type="submit" expand="block" (click)="loginPage()">Entrar</ion-button>
       </ion-col>
     </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label position="floating"> Contraseña</ion-label>
-          <ion-input type="password" required="true" #password></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-
-    <ion-row class="ion-align-items-center">
-      <ion-col >
-        <ion-button expand="block" (click)="loginPage(usuario, password)">
-          Ingresar
-        </ion-button>
-      </ion-col>
-    </ion-row>
-
-  </ion-grid>
+  </form>
 </ion-content>
